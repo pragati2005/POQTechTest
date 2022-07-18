@@ -1,0 +1,5 @@
+D:\POQTechProject\ApplicationCore\DomainModels\bin\Debug\DomainModels.dll
+D:\POQTechProject\ApplicationCore\DomainModels\bin\Debug\DomainModels.pdb
+D:\POQTechProject\ApplicationCore\DomainModels\obj\Debug\DomainModels.csproj.CoreCompileInputs.cache
+D:\POQTechProject\ApplicationCore\DomainModels\obj\Debug\DomainModels.dll
+D:\POQTechProject\ApplicationCore\DomainModels\obj\Debug\DomainModels.pdb

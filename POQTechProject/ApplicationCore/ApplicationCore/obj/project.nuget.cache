@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "Hf/xTZsEVfcl6aRpiVOqjLuYQelsLgf0Wtsut6pwmSUwy05ieD3TzYAGwndidUjob8QrPN3Dj8jGmg6TJB6DqQ==",
+  "success": true,
+  "projectFilePath": "D:\\POQTechProject\\ApplicationCore\\ApplicationCore\\Repository.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\pragatisaxena\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,88 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\POQTechProject\\ApplicationCore\\ApplicationCore\\Repository.csproj": {}
+  },
+  "projects": {
+    "D:\\POQTechProject\\ApplicationCore\\ApplicationCore\\Repository.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\POQTechProject\\ApplicationCore\\ApplicationCore\\Repository.csproj",
+        "projectName": "Repository",
+        "projectPath": "D:\\POQTechProject\\ApplicationCore\\ApplicationCore\\Repository.csproj",
+        "packagesPath": "C:\\Users\\pragatisaxena\\.nuget\\packages\\",
+        "outputPath": "D:\\POQTechProject\\ApplicationCore\\ApplicationCore\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\pragatisaxena\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "D:\\POQTechProject\\ApplicationCore\\DomainModels\\DomainModels.csproj": {
+                "projectPath": "D:\\POQTechProject\\ApplicationCore\\DomainModels\\DomainModels.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\POQTechProject\\ApplicationCore\\DomainModels\\DomainModels.csproj": {
+      "restore": {
+        "projectUniqueName": "D:\\POQTechProject\\ApplicationCore\\DomainModels\\DomainModels.csproj",
+        "projectName": "DomainModels",
+        "projectPath": "D:\\POQTechProject\\ApplicationCore\\DomainModels\\DomainModels.csproj"
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    }
+  }
+}

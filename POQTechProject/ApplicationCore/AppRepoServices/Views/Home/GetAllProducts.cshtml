@@ -1,0 +1,174 @@
+﻿@model IEnumerable<DomainModels.Entities.Products>
+
+@{
+    ViewBag.Title = "GetAllProducts";
+    var totalrecords = ViewBag.count;
+    var counter = 0;
+}
+<script>
+    var size = [];
+    var apikey;
+    window.onload = function (e) {
+        console.log(@totalrecords);
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        if (urlParams.get('minprice') != null) {
+            document.getElementById("minprice").value = urlParams.get('minprice');
+        }
+        if (urlParams.get('maxprice') != null) {
+            document.getElementById("maxprice").value = urlParams.get('maxprice');
+        }
+        if (urlParams.get('highlighttext') != null) {
+            var Stringval = urlParams.get('highlighttext').split(",");
+            console.log(Stringval);
+            document.getElementById("highlighttext").value = urlParams.get('highlighttext');
+           // for (var j = 0; j < Stringval.length; j++) {
+            for (var i = 0; i < (@totalrecords-1); i++) {
+
+                console.log(document.getElementById("des_" + i).innerText);
+                for (var j = 0; j < Stringval.length; j++) {
+                    if (document.getElementById("des_" + i).innerText.includes(Stringval[j]))  {
+                        document.getElementById("des_" + i).innerHTML = document.getElementById("des_" + i).innerText.replace(Stringval[j], "<em>" + Stringval[j] + "</em>");
+                    }
+                }
+             //   document.getElementById("des_" + i).innerHTML = document.getElementById("des_" + i).innerText;
+                }
+            //}
+        }
+
+        if (urlParams.get('size') != null) {
+            urlParams.get('size').split(',').forEach(function (data) {
+                size.push(data.toString());
+                document.getElementById(data.toString()).checked = true;
+            });
+        }
+
+    }
+    
+    function handleClick(cb) {
+        if (cb.checked) {
+            size.push(cb.value);
+        } else {
+            size.splice(size.indexOf(cb.value), 1);
+        }
+
+        console.log(size);
+    }
+    function searchProduct() {
+
+        var url = "https://localhost:44367/Home/GetAllProducts";
+
+        var paramUrl = [];
+        if (document.getElementById("minprice").value > 0) {
+            paramUrl.push("minprice");
+        }
+        if (document.getElementById("maxprice").value > 0) {
+            paramUrl.push("maxprice");
+        }
+
+        if (document.getElementById("highlighttext").value.length >0) {
+            paramUrl.push("highlighttext");
+           
+        }
+        if (size.length > 0) {
+            paramUrl.push("size");
+        }
+        paramUrl.push("apikey");
+        if (paramUrl.length) {
+            url = url+'?'
+        }
+        for (var i = 0; i < paramUrl.length > 0; i++) {
+            if (paramUrl[i] != 'size') {
+                url += paramUrl[i] + "=" + document.getElementById(paramUrl[i]).value+ '&'
+            } else {
+                url += paramUrl[i] + "=" + size.toString() + '&';
+            }
+        }
+        if (paramUrl.length) {
+            url = url.slice(0, (url.length - 1));
+        }
+        window.location.href = url;
+    }
+</script>
+<h2>GetAllProducts</h2>
+
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+<table class="table">
+    <tr>
+        <th>
+            <p>Sizes</p>
+            <ul role="listbox" tabindex="0" aria-label="">
+                <li tabindex="-1" role="option" aria-checked="false"><input type="checkbox" id="small" onclick='handleClick(this);' value="small" />Small</li>
+                <li tabindex="-1" role="option" aria-checked="false"><input type="checkbox" id="medium" value="medium" onclick='handleClick(this);' />Medium</li>
+                <li tabindex="-1" role="option" aria-checked="false"><input type="checkbox" id="large" value="large" onclick='handleClick(this);' />Large</li>
+
+            </ul>
+        </th>
+        <input type="hidden" id="apikey" name="apikey" value="0c4bbda1-bf7b-479d-b619-83a1df21f4e7"/> 
+        <th>
+            <p>Prices</p>
+            Min <input type="number" min="0" value="0" id="minprice" />
+            Max <input type="number" min="0" value="0" id="maxprice" />
+        </th>
+        <th>
+            <p>Highlight</p>
+            Text : <input type="text"  value="" id="highlighttext" />
+            
+        </th>
+
+        <th>
+            <button onclick="searchProduct()">Search</button>
+        </th>
+    </tr>
+    </table>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sizes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        <th></th>
+    </tr>
+
+
+    @{
+        int counter1 = 0;
+        foreach (var item in Model)
+        {
+
+
+            <tr>
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sizes)
+                </td>
+                <td id="des_@counter1">
+
+                    @Html.DisplayFor(modelItem => item.description)
+                </td>
+               
+            </tr>
+                counter1 = counter1 + 1;
+
+            }
+        }
+
+    </table>
+              
